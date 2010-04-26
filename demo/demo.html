@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>DEMO</title>
+
+    <script type="text/javascript" src="../js/domain.js"></script>
+    <script type="text/javascript" src="jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <style type="text/css">
+    body, html {
+        margin:0;
+        padding:0;
+        font-family:sans-serif;
+        font-size:12px;
+        line-height:18px;
+        overflow:hidden;
+    }
+    
+    #actions {
+        position:absolute;
+        left:0;
+        width:320px;
+        top:0;
+        bottom:0;
+        background:#CCC;
+    }
+    
+    #actions ul {
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+
+    #actions li {
+        margin:0;
+        padding:.5em;
+    }
+
+    #result {
+        position:absolute;
+        left:320px;
+        right:0;
+        top:0;
+        bottom:50%;
+        background:#BBB;
+        padding:.5em;
+        overflow:auto;
+    }
+    
+    #result.oldclass {
+        border:.5em solid #0FF;
+    }
+    
+    #result.newclass {
+        border:.5em solid #FF0;
+    }
+    
+    
+    #controls {
+        position:absolute;
+        left:320px;
+        right:0;
+        bottom:0;
+        top:50%;
+        background:#AAA;
+        padding:.5em;
+        overflow:auto;
+    }
+    
+    #controls div {
+        width:33%;
+        float:left;
+    }
+    
+
+    
+    </style>
+</head>
+<body>
+    <div id="actions">
+        <ul>
+            <li><button id="button-load-ajax">Load Ajax async</button></li>
+            <li><button id="button-hide">Hide #result DIV</button></li>
+            <li><button id="button-show">Show #result DIV</button></li>
+            <li><button id="button-add-class">Add #result class</button></li>
+            <li><button id="button-remove-class">Remove #result class</button></li>
+            <li><button id="button-fadeout">Fadeout #result DIV</button></li>
+            <li><button id="button-fadein">Fadein #result DIV</button></li>
+            <li><a id="link" href="demo2.html">demo page 2</a></li>
+        </ul>
+        
+        <hr>
+        
+        <ul>
+            <li><button id="action-reset-result">Reset result</button></li>
+        </ul>
+    </div>
+    
+    <div id="result" class="oldclass"></div>
+
+    <form id="controls" action="action.html" xonsubmit="return false;">
+        <div id="controls-checkboxes">
+            <fieldset>
+                <legend>Checkboxes</legend>
+                <p>
+                    <input type="checkbox" name="check" value="0"/> 0
+                    <input type="checkbox" name="check" value="2"/> 1
+                    <input type="checkbox" name="check" value="0"/> 2
+                </p>
+                <p>
+                    <input type="button" id="controls-checkboxes-select-all" value="Select all"/>
+                    <input type="button" id="controls-checkboxes-select-none" value="Select none"/>
+                </p>
+            </fieldset>
+        </div>
+    
+        <div id="controls-text">
+            <fieldset>
+                <legend>Text input</legend>
+                <p>
+                    <input type="text"/> <input type="button" id="controls-text-ok" value="OK"/>
+                </p>
+                <p>
+                    Enter your name and press "OK".
+                </p>
+            </fieldset>
+        </div>
+
+        <div id="controls-select">
+            <fieldset>
+                <legend>Select</legend>
+                <p>
+                    <select>
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                        <option selected="selected">Default</option>
+                    </select>
+                </p>
+                <p></p>
+            </fieldset>
+        </div>
+    </form>
+</body>
+</html>

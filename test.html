@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+    <style type="text/css">
+    body, html {
+        font-family:sans-serif;
+        background:#000;
+        color:#FF0;
+        padding:0;
+        margin:0;
+        font-size:12px;
+        
+    }
+    
+    h1 {
+        font-size:1em;
+        margin:1em 0 0 0;
+        padding:0;
+        font-weight:bold;
+    }
+    
+    p {
+        color:#FFF;
+        padding:1em;
+        margin:0;
+    }
+    
+    a {
+        color:#0CF;
+    }
+    
+    pre {
+        background:#222;
+        padding:1em;
+        margin:0;
+        color:#FFF;
+        text-shadow:2px 2px #000;
+    }
+    
+    table {
+        width:100%;
+        border-spacing:0;
+        border-collapse:collapse;
+        font-size:10px;
+    }
+    
+    th, td {
+        text-align:left;
+        border-bottom:1px solid #222;
+        padding:2px 5px;
+        color:#999;
+    }
+    
+    tr.testing th { color:#FFF; }
+    tr.passed  th { color:#0F0; }
+    tr.failed  th { color:#F00; }
+    
+    #listtests {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:50%;
+        overflow:auto;
+    }
+
+    #results {
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        bottom:0;
+        overflow:auto;
+    }
+    
+    
+    </style>
+    <script type="text/javascript" src="js/domain.js"></script>
+    <script type="text/javascript" src="js/uitest.js"></script>
+    <script type="text/javascript" src="js/assert.js"></script>
+    <script type="text/javascript" src="uitest_tests.js"></script>
+
+</head>
+<body onload="UITest.start();">
+    <div id="listtests"></div>
+    <pre id="results"></pre>
+</body>
+</html>
