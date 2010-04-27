@@ -2,7 +2,7 @@ UITest - jQuery Driven Automated UI Testing
 
 DESCRIPTION
 
-UITest is the automated UI testing framework for jQuery projects as demo'd by Menno van Slooten on April 25th at the jQuery Bay Area conference 2010. It was initially written for automated testing on hte eBuddy Web Messenger (www.ebuddy.com) and later generalized to work for some/most/all jQuery projects.
+UITest is the automated UI testing framework for jQuery projects as demo'd by Menno van Slooten on April 25th at the jQuery Bay Area conference 2010. It was initially written for automated testing on the eBuddy Web Messenger (www.ebuddy.com) and later generalized to work for some/most/all jQuery projects.
 
 INSTALLATION
 
