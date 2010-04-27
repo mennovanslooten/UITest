@@ -99,7 +99,7 @@ var UITest = new function() {
     }
 
 
-    function pass(s) {
+    function pass() {
         if (_activeTest) {
             setStatus('passed');
             teardown('Passed test "' + _activeTest.name + '"', null, true);
@@ -119,14 +119,10 @@ var UITest = new function() {
 
 
     this.start = function() {
-
         var list = document.getElementById('listtests');
-        
         var html = '<table>'
-        
         html += '<thead><tr><th colspan="3"><a href="index.html" target="_parent">List of tests</a></th></tr></thead>';
         html += '<tbody>';
-        
         for (var i = 0; i < _testScripts.length; i++) {
             html += '<tr id="test-status-' + i + '">'
             html += '<th>' + _testScripts[i].name + '</th>';
@@ -135,16 +131,12 @@ var UITest = new function() {
             html += '<td><a href="index.html?' + i + '&notests" target="_parent">no tests</a></td>';
             html += '</tr>'
         }
-
-
         html += '<tr>'
         html += '<th>All tests</th>';
         html += '<td><a href="index.html?all" target="_parent">run</a></td>';
         html += '<td><a href="index.html?all&slow" target="_parent">slow</a></td>';
         html += '<td></td>';
         html += '</tr>'
-
-
         html += '</tbody></table>';
         list.innerHTML = html;
 
@@ -160,7 +152,6 @@ var UITest = new function() {
 
 
     this.addTestScript = function(testScript) {
-
         // For short notation
         if (testScript.waitFor && testScript.thenRun) {
             testScript.tests = [{
@@ -170,7 +161,6 @@ var UITest = new function() {
         }
 
         var tests = testScript.tests;
-        
         var wrappers = [];
         for (var i = tests.length - 1; i >= 0; i--) {
             _total++;

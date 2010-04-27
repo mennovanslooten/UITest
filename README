@@ -1,2 +1,80 @@
+UITest - jQuery Driven Automated UI Testing
 
-Hello, world!
+DESCRIPTION
+
+UITest is the automated UI testing framework for jQuery projects as demo'd by Menno van Slooten on April 25th at the jQuery Bay Area conference 2010. It was initially written for automated testing on hte eBuddy Web Messenger (www.ebuddy.com) and later generalized to work for some/most/all jQuery projects.
+
+INSTALLATION
+
+Place the uitest directory in your project's root.
+
+WRITING A TEST
+
+Edit the uitest_tests.js file and add a basic test:
+
+    UITest.addTestScript({
+        name    : 'My test',
+        url     : '../index.html',
+        waitFor : 'pageToLoad',
+        thenRun : function() {
+            UITest.log('The page has loaded');
+            // Your tests here
+        }
+    });
+
+The waitFor property takes 5 types of arguments:
+
+  1. "pageToLoad": The most common. It fires up the test as soon as the page is loaded and jQuery is available and ready. See this.waitForPageToLoad() in js/uitest.js.
+  
+  2. "#any.jquery[selector]": This starts testing as soon as the selector returns one or more elements that are visible. See this.waitForElementVisible() in js/uitest.js.
+  
+  3. "!#any.jquery[selector]": (Notice the exclamation mark) This starts testing as soon as the selector returns zero elements or one or more elements that are hidden. See this.waitForElementVisible() in js/uitest.js.
+  
+  4. A number: This starts testing after n milliseconds.
+  
+  5. A function: This starts testing as soon as the function returns true. See this.waitForExpressionTrue() in js/uitest.js.
+    
+In uitest_tests.js you will find examples of how to do basic actions and asserts. For a full list of available asserts you can open the file js/assert.js.
+
+RUNNING A TEST
+
+You can then run the test by opening http://your.project.url/uitest/ and choosing your test from the list on the right. Running the test "fast" (without interruptions) will probably go too fast to notice, so you might want to hit "slow" which will pause on every UITest.log() statement. Choosing "no tests" will just load the file defined by the url property of that test.
+
+ASYNCHRONOUS ACTIONS
+
+Any test involving asynchronous actions (Ajax requests, animations or anything having to do with setTimeout or setInterval) will have to be broken up. Study the difference between the "Ajax fail" and "Ajax success" demo tests to see how this is done.
+
+SETUP/TEARDOWN
+
+If something needs to run before and/or after tests are started you can use the setup and teardown options:
+
+    UITest.addTestScript({
+        name    : 'My test',
+        url     : '../index.html',
+        waitFor : 'pageToLoad',
+        thenRun : function() {
+            UITest.log('The page has loaded');
+            // Your tests here
+        },
+        setup   : function(testframe) {
+            // Run before the tests
+        },
+        teardown: function(testframe) {
+            // Run after the tests fail or succeed
+        }
+    });
+    
+The testframe variable passed to these functions is the frame of the page where the tests are run.
+
+REMARKS
+
+UITest is a very, very basic framework and not originally intended for public consumption. Prolonged exposure to the code may induce nausea and dizziness. Please help the project by:
+
+  * Improving documentation
+  * Finding, reporting and/or fixing bugs
+  * Creating more helpful asserts
+  * Figuring out a way to add a "record" functionality
+  * Figuring out a better way to run tests in "slow motion"
+  * Figuring out a way to include tests in any type of automated build process.
+  
+
