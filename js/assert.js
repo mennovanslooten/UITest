@@ -1,6 +1,6 @@
 UITest.assertIsTrue = function(value) {
     if (!value) {
-        this.fail('assertIsTrue', 'Expected true but was: <' + value + '>');
+        this.fail('assertIsTrue', 'Expected <true> but was: <' + value + '>');
     }
 };
 
