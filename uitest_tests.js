@@ -81,6 +81,47 @@
 
 
     UITest.addTestScript({
+        name    : 'Demo Test: Ajax Mockup',
+        url     : 'demo/demo.html',
+        setup   : function(testframe) {
+            UITest.addMockAjax('ajax.html', {
+                headers : {
+                    headerName1: 'headerValue1',
+                    headerName2: 'headerValue2'
+                },
+                delay:1500,
+                responseText: '<p>I am a mocked up response.</p>'
+            });
+        },
+        tests   : [
+            {
+                waitFor: 'pageToLoad',
+                thenRun: function() {
+                    UITest.log('Load async ajax');
+                    // This ajax request will be mocked up
+                    $('#button-load-ajax').click();
+                }
+            },
+            {
+                waitFor: '#result p:contains("mocked up")',
+                thenRun: function() {
+                    UITest.log('Ajax data available');
+                    UITest.removeMockAjax('ajax.html');
+                    // This ajax request will be normal again
+                    $('#button-load-ajax').click();
+                }
+            },
+            {
+                waitFor: '#result p:contains("Lorem ipsum")',
+                thenRun: function() {
+                    UITest.log('Ajax data available');
+                }
+            }
+        ]
+    });
+
+
+    UITest.addTestScript({
         name    : 'Demo Test: Fade Out/Fade In',
         url     : 'demo/demo.html',
         tests   : [

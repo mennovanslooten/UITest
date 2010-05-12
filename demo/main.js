@@ -9,8 +9,13 @@
             url:'ajax.html',
             async:true,
             cache:false,
+            /* 
             success: function(html) {
                 _result.html(html);
+            }
+            */
+            complete: function(response, status) {
+                _result.html(response.responseText);
             }
         });
     }
